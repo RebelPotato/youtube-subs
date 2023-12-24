@@ -6,12 +6,12 @@ Warning: unstable. Read the code before you run it.
 
 ## Usage
 
-Create a file named "config.json" in the same directory as the script with the following content:
+You need to have yt-dlp and whisper.cpp installed. Create a file named "config.json" in the same directory as the script with the following content:
 
 ```json
 {
-    "output": "/home/anon/output",
-    "whisper": "/home/anon/whisper.cpp"
+    "output": "/home/anon/path/to/output",
+    "whisper": "/home/anon/path/to/whisper.cpp"
 }
 ```
 
@@ -21,7 +21,7 @@ Then run
 deno task start [URL]
 ```
 
-Replace `[URL]` with the URL of the video you want to download.
+Replace `[URL]` with the URL of the video you want to download. The video will be downloaded to the `output` directory specified in the config.
 
 ## Configuration
 
