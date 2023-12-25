@@ -70,6 +70,9 @@ function whisperCommand(): string[] {
     `${whisperPath("models/ggml-large-v3-q5_0.bin")}`,
     `--output-srt`,
     `--print-colors`,
+    // `--best-of`, `5`,
+    // `--beam-size`, `8`,
+    // `--logprob-thold`, `-1.0`,  // avoid looping
     `${outputPath("output.wav")}`,
   ];
 }
