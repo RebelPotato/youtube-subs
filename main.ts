@@ -31,9 +31,14 @@ function whisperPath(file: string): string {
 
 function ydlOption(url: string): string[] {
   return [
-    `-o`,
-    `${outputPath("%(title)s.%(ext)s")}`,
+    `-o`, `${outputPath("%(title)s.%(ext)s")}`,
+    `-N`, `4`,
     `--write-thumbnail`,
+    `--write-description`,
+    `--write-info-json`,
+    `--write-subs`,
+    `--write-auto-subs`,
+    `--embed-chapters`,
     `${url}`,
   ];
 }
@@ -51,14 +56,10 @@ function videoPath(): string {
 
 function ffmpegCommand(file: string): string[] {
   return [
-    `-i`,
-    `${file}`,
-    `-ar`,
-    "16000",
-    `-ac`,
-    "1",
-    `-c:a`,
-    `pcm_s16le`,
+    `-i`, `${file}`,
+    `-ar`, "16000",
+    `-ac`, "1",
+    `-c:a`, `pcm_s16le`,
     `${outputPath("output.wav")}`,
   ];
 }
@@ -68,6 +69,7 @@ function whisperCommand(): string[] {
     `-m`,
     `${whisperPath("models/ggml-large-v3-q5_0.bin")}`,
     `--output-srt`,
+    `--print-colors`,
     `${outputPath("output.wav")}`,
   ];
 }
